@@ -23,6 +23,9 @@ RUN apt-get update && apt-get install -y \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+COPY apache.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod rewrite
+
 WORKDIR /var/www/html
 
 COPY . .
