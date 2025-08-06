@@ -32,6 +32,8 @@ COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader
 
+RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
+
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
